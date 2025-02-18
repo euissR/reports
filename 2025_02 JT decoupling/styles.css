@@ -139,13 +139,14 @@ th {
 /* Base styles */
 .container {
   display: flex;
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  /* max-width: 1200px; */
+  margin: 0;
   z-index: 2;
 }
 
 .scroll-content {
-  width: 50%;
+  width: 66%;
   padding-right: 20px;
   padding-left: 0;
   z-index: 3;
