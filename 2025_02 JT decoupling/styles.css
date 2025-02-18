@@ -172,17 +172,7 @@ th {
   position: relative; /* Added to establish positioning context for tooltip */
   width: 100%;
   height: 100%;
-  font-size: medium;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 0;
-}
-
-.halfchart {
-  right: 0;
-  width: 50%;
-  font-size: medium;
+  font-size: large;
   display: flex;
   justify-content: center;
   align-items: center;
