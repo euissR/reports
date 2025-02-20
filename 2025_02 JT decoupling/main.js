@@ -1,8 +1,10 @@
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
-import { dataUrls } from "./config.js";
-import { createVisualization } from "./scatter.js";
-import { handleScroll } from "./handleScroll.js";
-import { updateVisualization } from "./updateVisualization.js";
+import { createVisualization } from "https://reports-lemon-beta.vercel.app/2025_02%20JT%20decoupling/scatter.js";
+import { handleScroll } from "https://reports-lemon-beta.vercel.app/2025_02%20JT%20decoupling/handleScroll.js";
+import { dataUrls } from "https://reports-lemon-beta.vercel.app/2025_02%20JT%20decoupling/config.js";
+// import { createVisualization } from "./scatter.js";
+// import { handleScroll } from "./handleScroll.js";
+// import { dataUrls } from "./config.js";
 
 // Store configurations globally with a map of chart IDs to their configs
 const globalConfigs = new Map();
@@ -59,6 +61,9 @@ export async function initializeVisualization(containerId, config) {
     const containerDataStep = container.dataset.step
       ? JSON.parse(container.dataset.step)
       : null;
+    const containerDataLabel = container.dataset.label
+      ? container.dataset.Label
+      : null;
 
     // Fetch data if not already loaded
     if (!globalData || !globalRectData) {
@@ -85,6 +90,7 @@ export async function initializeVisualization(containerId, config) {
         showLinks: config.showLinks,
         includeLinks: config.includeLinks,
         dataStep: containerDataStep,
+        dataLabel: containerDataLabel,
         legend: config.legend,
       }
     );

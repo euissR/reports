@@ -46,6 +46,11 @@ th {
   pointer-events: none;
 }
 
+.dataLabel {
+  font-size: 16px;
+  font-weight: bold;
+}
+
 /* Axis styling */
 .axis line,
 .axis path {
@@ -160,7 +165,7 @@ th {
 .sticky-container {
   position: sticky;
   top: 0;
-  width: 30%;
+  width: 40%;
   height: 100vh;
   /* display: flex; */
   justify-content: center;
@@ -180,7 +185,7 @@ th {
 }
 
 .card {
-  margin-bottom: 80vh;
+  margin-bottom: 50vh;
   background-color: rgba(255, 255, 255, 0.8);
   padding: 20px;
   opacity: 1;

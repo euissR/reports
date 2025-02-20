@@ -1,6 +1,11 @@
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
-import { config } from "./config.js";
-import { createScales, createAxes } from "./scales.js";
+import { config } from "https://reports-lemon-beta.vercel.app/2025_02%20JT%20decoupling/config.js";
+import {
+  createScales,
+  createAxes,
+} from "https://reports-lemon-beta.vercel.app/2025_02%20JT%20decoupling/scales.js";
+// import { config } from "./config.js";
+// import { createScales, createAxes } from "./scales.js";
 
 export function createVisualization(
   data,
@@ -10,7 +15,14 @@ export function createVisualization(
   dotY,
   linkX,
   linkY,
-  { showDots, showLinks, includeLinks, dataStep = null, legend } = {}
+  {
+    showDots,
+    showLinks,
+    includeLinks,
+    dataStep = null,
+    dataLabel = null,
+    legend,
+  } = {}
 ) {
   // console.log("createVisualization received dataStep:", dataStep);
 
@@ -119,6 +131,7 @@ export function createVisualization(
         showLinks,
         includeLinks,
         dataStep,
+        dataLabel,
         // dataStep: String(dataStep), // Ensure dataStep is a string
       }
     );
@@ -177,7 +190,7 @@ function drawDots(
   linkX,
   linkY,
   chartId,
-  { showLinks, includeLinks, dataStep } = {}
+  { showLinks, includeLinks, dataStep, dataLabel } = {}
 ) {
   // console.log("Drawing dots with dataStep:", dataStep);
 
@@ -222,7 +235,7 @@ function drawDots(
       return !dataStep || // Check if dataStep is null/undefined
         dataStep.some((step) => String(step) === String(d.name_short))
         ? // return dataStep === null || String(dataStep) === d.name_short
-          "#000"
+          "#000" // test?
         : "#fff";
     })
     .style("opacity", (d) => {
@@ -299,6 +312,8 @@ function drawDots(
       }
     });
 
+  console.log("anything");
+
   dots
     .append("text")
     .attr("class", "label")
@@ -328,6 +343,21 @@ function drawDots(
         : 300;
     })
     .text((d) => d.name_short);
+
+  // console.log("anything");
+  console.log("dataLabel", dataLabel);
+  // dataLabel
+  dots
+    .append("text")
+    .attr("class", "dataLabel")
+    .attr("x", xScale(5))
+    .attr("y", yScale(10.5))
+    .attr("text-anchor", "middle")
+    .style("font-weight", "normal")
+    // .style("fill", "#ccc")
+    // .attr("dy", ".3em")
+    .text((d, i) => (i === 0 ? dataLabel : null));
+  // .text(dataLabel);
 }
 
 function drawLinks(

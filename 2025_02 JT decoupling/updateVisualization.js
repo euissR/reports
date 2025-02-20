@@ -1,5 +1,5 @@
-import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
-import { createVisualization } from "./scatter.js";
+import { createVisualization } from "https://reports-lemon-beta.vercel.app/2025_02%20JT%20decoupling/scatter.js";
+// import { createVisualization } from "./scatter.js";
 
 export function updateVisualization(
   dataStep,
@@ -11,6 +11,7 @@ export function updateVisualization(
   linkX,
   linkY,
   legend,
+  dataLabel,
   { showDots, showLinks, includeLinks }
 ) {
   if (!dataStep) return;
@@ -37,6 +38,7 @@ export function updateVisualization(
     showLinks,
     includeLinks,
     dataStep: steps,
+    dataLabel,
     legend,
   });
 }

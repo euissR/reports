@@ -15,7 +15,7 @@ export const config = {
 
 export const dataUrls = {
   quadrants:
-    "https://raw.githubusercontent.com/euissR/commentary/refs/heads/main/2025_02%20JT%20decoupling/quadrants.json",
+    "https://raw.githubusercontent.com/euissR/reports/refs/heads/main/2025_02%20JT%20decoupling/quadrants.json",
   industries:
-    "https://raw.githubusercontent.com/euissR/commentary/refs/heads/main/2025_02%20JT%20decoupling/dataWeb.csv",
+    "https://raw.githubusercontent.com/euissR/reports/refs/heads/main/2025_02%20JT%20decoupling/dataWeb.csv",
 };

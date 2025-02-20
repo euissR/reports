@@ -1,10 +1,14 @@
-import { updateVisualization } from "./updateVisualization.js";
-import { getGlobalData } from "./main.js";
+import { updateVisualization } from "https://reports-lemon-beta.vercel.app/2025_02%20JT%20decoupling/updateVisualization.js";
+import { getGlobalData } from "https://reports-lemon-beta.vercel.app/2025_02%20JT%20decoupling/main.js";
+// import { updateVisualization } from "./updateVisualization.js";
+// import { getGlobalData } from "./main.js";
 
 let currentStep = null;
+let currentLabel = null;
 
 export function handleScroll() {
   const cards = document.querySelectorAll(".card[data-step]");
+  const label = document.querySelectorAll(".card[data-label]");
   const { data, rectData, config } = getGlobalData();
 
   if (!config) {
@@ -35,6 +39,7 @@ export function handleScroll() {
 
   if (mostVisibleCard) {
     const newStep = mostVisibleCard.getAttribute("data-step");
+    const newLabel = mostVisibleCard.getAttribute("data-label");
 
     if (newStep !== currentStep) {
       const chartElements = document.querySelectorAll(
@@ -57,6 +62,7 @@ export function handleScroll() {
 
       const chartDivId = visibleChart.id;
       currentStep = newStep;
+      currentLabel = newLabel;
 
       if (!data || !rectData || !config) {
         console.error("Missing required data:", { data, rectData, config });
@@ -73,6 +79,7 @@ export function handleScroll() {
         config.linkX,
         config.linkY,
         config.legend,
+        newLabel,
         {
           showDots: config.showDots,
           showLinks: config.showLinks,

@@ -1,5 +1,6 @@
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
-import { config } from "./config.js";
+import { config } from "https://reports-lemon-beta.vercel.app/2025_02%20JT%20decoupling/config.js";
+// import { config } from "./config.js";
 
 export function createScales(data, xDomain, yDomain) {
   const width = config.width - config.margin.left - config.margin.right;
